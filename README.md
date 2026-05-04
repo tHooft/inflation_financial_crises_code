@@ -14,10 +14,12 @@ Replication code for:
 ```
 repo/
 ├── datasets/
-│   ├── JSTdatasetR6.xlsx      # Jordà-Schularick-Taylor Macrohistory Database (R6)
-│   └── KAOPEN.csv             # Chinn-Ito capital account openness index
+│   ├── JSTdatasetR6.xlsx              # Jordà-Schularick-Taylor Macrohistory Database (R6)
+│   ├── KAOPEN.csv                     # Chinn-Ito capital account openness index
+│   └── BH2_supply_shocks.xlsx         # Baumeister-Hamilton oil supply shocks
 │
-└── equation_1_diff_in_diff.ipynb   # Baseline matched pegged-base regression (Table 4)
+├── equation_1_diff_in_diff.ipynb      # Matched pegged-base regression (Table 4)
+└── equation_3_4_2SLS_oil_shocks.ipynb # Oil supply shock IV regression (Table 5)
 ```
 
 ---
@@ -27,6 +29,7 @@ repo/
 | Notebook | Description | Paper section |
 |---|---|---|
 | `equation_1_diff_in_diff.ipynb` | Matched pegged-base countries regression — isolates the direct effect of inflation on financial stability by exploiting the monetary trilemma | Section 4.1 / Table 4 |
+| `equation_3_4_2SLS_oil_shocks.ipynb` | Oil supply shock IV — instruments inflation with Baumeister-Hamilton oil supply shocks; first stage (Eq. 3) and second stage (Eq. 4) | Section 4.2 / Table 5 |
 
 ---
 
@@ -41,6 +44,12 @@ Place the file at `datasets/JSTdatasetR6.xlsx`.
 **Countries:** Australia, Belgium, Canada, Denmark, Finland, France, Germany, Ireland,
 Italy, Japan, the Netherlands, Norway, Portugal, Spain, Sweden, Switzerland,
 the United Kingdom, and the United States.
+
+### Baumeister-Hamilton Oil Supply Shocks
+Monthly structural oil supply shocks from a Bayesian VAR with sign restrictions, 1975–2020.  
+Download from: [www.christophbaumeister.com](https://www.christophbaumeister.com/)
+
+Place the file at `datasets/BH2_supply_shocks.xlsx`.
 
 ### Chinn-Ito Capital Openness Index (KAOPEN)
 Standardised measure of capital account openness.  
