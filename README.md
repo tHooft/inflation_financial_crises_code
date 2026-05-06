@@ -16,10 +16,12 @@ repo/
 ├── datasets/
 │   ├── JSTdatasetR6.xlsx              # Jordà-Schularick-Taylor Macrohistory Database (R6)
 │   ├── KAOPEN.csv                     # Chinn-Ito capital account openness index
-│   └── BH2_supply_shocks.xlsx         # Baumeister-Hamilton oil supply shocks
+│   ├── BH2_supply_shocks.xlsx             # Baumeister-Hamilton oil supply shocks
+│   └── CBIData_Romelli_2024.xlsx          # Romelli central bank independence index
 │
-├── equation_1_diff_in_diff.ipynb      # Matched pegged-base regression (Table 4)
-└── equation_3_4_2SLS_oil_shocks.ipynb # Oil supply shock IV regression (Table 5)
+├── equation_1_diff_in_diff.ipynb          # Matched pegged-base regression (Table 4)
+├── equation_3_4_2SLS_oil_shocks.ipynb     # Oil supply shock IV regression (Table 5)
+└── table_6_heterogeneity_interactions.ipynb  # Heterogeneous effects of inflation (Table 6)
 ```
 
 ---
@@ -30,6 +32,7 @@ repo/
 |---|---|---|
 | `equation_1_diff_in_diff.ipynb` | Matched pegged-base countries regression — isolates the direct effect of inflation on financial stability by exploiting the monetary trilemma | Section 4.1 / Table 4 |
 | `equation_3_4_2SLS_oil_shocks.ipynb` | Oil supply shock IV — instruments inflation with Baumeister-Hamilton oil supply shocks; first stage (Eq. 3) and second stage (Eq. 4) | Section 4.2 / Table 5 |
+| `table_6_heterogeneity_interactions.ipynb` | Heterogeneous effects — interacts instrumented inflation with wage growth, debt ratios, and CB financial independence to test transmission channels | Section 6 / Table 6 |
 
 ---
 
@@ -50,6 +53,12 @@ Monthly structural oil supply shocks from a Bayesian VAR with sign restrictions,
 Download from: [www.christophbaumeister.com](https://www.christophbaumeister.com/)
 
 Place the file at `datasets/BH2_supply_shocks.xlsx`.
+
+### Romelli Central Bank Independence Index
+Annual CBI scores for advanced economies, covering multiple sub-indices including financial independence.  
+Download from: [www.damianoromelli.com](https://www.damianoromelli.com/)
+
+Place the file at `datasets/CBIData_Romelli_2024.xlsx`.
 
 ### Chinn-Ito Capital Openness Index (KAOPEN)
 Standardised measure of capital account openness.  
