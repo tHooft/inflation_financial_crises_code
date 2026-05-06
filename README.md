@@ -13,9 +13,12 @@ Replication code for:
 
 ```
 repo/
+├── utils.py                               # Shared helper functions (all notebooks)
+├── data.py                                # Data loaders and base panel constructor
+│
 ├── datasets/
-│   ├── JSTdatasetR6.xlsx              # Jordà-Schularick-Taylor Macrohistory Database (R6)
-│   ├── KAOPEN.csv                     # Chinn-Ito capital account openness index
+│   ├── JSTdatasetR6.xlsx                  # Jordà-Schularick-Taylor Macrohistory Database (R6)
+│   ├── KAOPEN.csv                         # Chinn-Ito capital account openness index
 │   ├── BH2_supply_shocks.xlsx             # Baumeister-Hamilton oil supply shocks
 │   └── CBIData_Romelli_2024.xlsx          # Romelli central bank independence index
 │
@@ -23,6 +26,18 @@ repo/
 ├── equation_3_4_2SLS_oil_shocks.ipynb     # Oil supply shock IV regression (Table 5)
 └── table_6_heterogeneity_interactions.ipynb  # Heterogeneous effects of inflation (Table 6)
 ```
+
+---
+
+## Shared Modules
+
+All repeated code lives in two Python files that the notebooks import from:
+
+`utils.py` — data-reshaping helpers (`melt`, `add_const`, `winsor`), regression display formatters (`display`, `display_w_std_errors`), and the two shared regression runners (`run_first_stage`, `run_heterogeneity_regression`).
+
+`data.py` — dataset loaders (`load_jst`, `load_kaopen`, `load_oil_shocks`, `load_romelli`) and panel constructors (`build_oil_shocks_panel`, `build_base_panel`). The notebooks import only what they need and focus on analysis-specific logic.
+
+> **Note:** The `pivot` helper closes over the notebook-local `raw_df`, so it is defined as a one-liner in each notebook after `raw_df` is loaded.
 
 ---
 
